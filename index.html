@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jessica Miyagawa — Psicóloga TCC em São Paulo</title>
+  <meta name="description" content="Psicóloga especialista em TCC. Atendimento presencial em Moema/SP e online para todo o Brasil. Relacionamentos e bem-estar feminino.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Gistesy';
+      src: url('assets/fonts/Gistesy.ttf') format('truetype');
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --earth:      #8C916C;
+      --sand:       #ACB087;
+      --almond:     #E3E8D5;
+      --moss:       #8C916C;
+      --sage:       #ACB087;
+      --dark:       #23271a;
+      --text:       #252d1c;
+      --text-light: #58654a;
+      --white:      #ffffff;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+      --max-w: 1200px;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--almond); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--earth);
+    }
+    .label--light { color: var(--sand); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.4s var(--ease);
+    }
+    nav.scrolled { background: var(--almond); padding: 10px 48px; box-shadow: 0 1px 0 rgba(140,145,108,0.2); }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo svg { display: block; transition: fill 0.4s ease; }
+    .nav-logo svg text { fill: white; transition: fill 0.4s ease; }
+    nav.scrolled .nav-logo svg text { fill: #8C916C; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; color: var(--text); transition: color 0.3s; }
+    .nav-links a:hover { color: var(--earth); }
+    .nav-cta { background: var(--earth) !important; color: white !important; padding: 10px 24px; }
+    .nav-cta:hover { background: var(--dark) !important; }
+
+    /* ── HERO ── */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 55% 45%; }
+    .hero-photo { position: relative; overflow: hidden; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .hero-content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 64px 80px;
+      background: var(--almond);
+      position: relative;
+    }
+    .hero-content::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 80% 20%, rgba(140,145,108,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-label { margin-bottom: 28px; }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 4.2vw, 66px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.1; color: var(--dark);
+      margin-bottom: 28px;
+    }
+    .hero-title span { color: var(--earth); }
+    .hero-divider { width: 48px; height: 1px; background: var(--sand); margin-bottom: 24px; }
+    .hero-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; max-width: 360px; margin-bottom: 44px; }
+    .hero-ctas { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+
+    .btn-whats {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: white;
+      padding: 15px 30px;
+      font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+      transition: all 0.3s var(--ease);
+    }
+    .btn-whats:hover { background: #1da853; transform: translateY(-2px); }
+    .btn-secondary {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+      color: var(--text-light); border-bottom: 1px solid var(--sand); padding-bottom: 2px;
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover { color: var(--earth); border-color: var(--earth); }
+
+    .hero-stats { display: flex; gap: 32px; margin-top: 56px; }
+    .stat-num { font-family: var(--font-display); font-size: 26px; font-weight: 400; color: var(--earth); display: block; line-height: 1; margin-bottom: 4px; }
+    .stat-txt { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); font-weight: 500; }
+
+    /* ── SOBRE ── */
+    .sobre { padding: 120px 0; background: var(--white); }
+    .sobre-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .sobre-video { display: flex; align-items: center; justify-content: center; }
+    .sobre-shorts-wrap { position: relative; width: 100%; max-width: 320px; padding-top: calc(320px * 1.7778); /* 9:16 */ overflow: hidden; box-shadow: 0 20px 60px rgba(35,39,26,0.12); }
+    .sobre-shorts-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .sobre-content .label { display: block; margin-bottom: 20px; }
+    .sobre-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 400; line-height: 1.2; color: var(--dark); margin-bottom: 24px; }
+    .sobre-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; margin-bottom: 16px; }
+    .sobre-divider { width: 40px; height: 1px; background: var(--sand); margin: 28px 0; }
+    .credentials { display: flex; flex-direction: column; gap: 10px; }
+    .credential { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 300; color: var(--text-light); }
+    .credential::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--earth); flex-shrink: 0; }
+
+    /* ── NICHOS ── */
+    .nichos { padding: 120px 0; background: var(--almond); }
+    .nichos-header { max-width: var(--max-w); margin: 0 auto 32px; padding: 0 48px; }
+    .nichos-header .label { display: block; margin-bottom: 16px; }
+    .nichos-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); }
+    .nichos-grid { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    .nicho-card { padding: 52px 44px; position: relative; overflow: hidden; transition: transform 0.4s var(--ease); }
+    .nicho-card:hover { transform: translateY(-4px); }
+    .nicho-card.rel { background: var(--earth); }
+    .nicho-card.fem { background: #6d7353; }
+    .nicho-tag { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.55); display: block; margin-bottom: 28px; }
+    .nicho-title { font-family: var(--font-display); font-size: clamp(28px, 2.4vw, 40px); font-weight: 400; color: white; line-height: 1.15; margin-bottom: 20px; }
+    .nicho-divider { width: 36px; height: 1px; background: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .nicho-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.9; margin-bottom: 32px; }
+    .nicho-temas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+    .tema { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; padding: 5px 12px; border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.75); }
+    .nicho-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; color: white; border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 2px; transition: all 0.3s; }
+    .nicho-cta:hover { gap: 14px; border-color: white; }
+    .nicho-num { position: absolute; bottom: -16px; right: 28px; font-family: var(--font-display); font-size: 150px; font-weight: 300; color: rgba(255,255,255,0.05); line-height: 1; pointer-events: none; user-select: none; }
+
+    /* ── TCC ── */
+    .tcc { padding: 120px 0; background: var(--dark); }
+    .tcc-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .tcc-content .label--light { display: block; margin-bottom: 20px; }
+    .tcc-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 50px); font-weight: 300; font-style: italic; line-height: 1.2; color: var(--almond); margin-bottom: 24px; }
+    .tcc-text { font-size: 15px; font-weight: 300; color: rgba(234,222,208,0.6); line-height: 1.9; }
+    .tcc-steps { margin-top: 44px; display: flex; flex-direction: column; }
+    .tcc-step { display: flex; gap: 20px; padding: 22px 0; border-bottom: 1px solid rgba(234,222,208,0.08); align-items: flex-start; }
+    .tcc-step-num { font-family: var(--font-display); font-size: 30px; font-weight: 300; color: var(--earth); line-height: 1; flex-shrink: 0; width: 44px; }
+    .tcc-step h4 { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--almond); margin-bottom: 4px; }
+    .tcc-step p { font-size: 13px; font-weight: 300; color: rgba(234,222,208,0.5); line-height: 1.7; }
+    .tcc-photo { position: relative; }
+    .tcc-photo img { width: 100%; height: 600px; object-fit: cover; object-position: center top; filter: grayscale(15%); }
+    .tcc-badge { position: absolute; bottom: 32px; left: -28px; background: var(--earth); padding: 22px 26px; }
+    .tcc-badge-title { font-family: var(--font-display); font-size: 18px; font-weight: 400; color: white; margin-bottom: 2px; }
+    .tcc-badge-sub { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+    /* ── COMO FUNCIONA ── */
+    .como { padding: 120px 0; background: var(--white); }
+    .como-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .como-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
+    .como-header-left .label { display: block; margin-bottom: 16px; }
+    .como-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); }
+    .como-subtitle { font-size: 14px; font-weight: 300; color: var(--text-light); max-width: 280px; text-align: right; line-height: 1.8; }
+    .como-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--almond); }
+    .step { background: white; padding: 48px 36px; transition: background 0.35s; }
+    .step:hover { background: var(--almond); }
+    .step-num { font-family: var(--font-display); font-size: 68px; font-weight: 300; color: var(--almond); line-height: 1; margin-bottom: 20px; transition: color 0.35s; }
+    .step:hover .step-num { color: var(--sand); }
+    .step-divider { width: 30px; height: 1px; background: var(--sand); margin-bottom: 16px; }
+    .step-title { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 10px; }
+    .step-text { font-size: 14px; font-weight: 300; color: var(--text-light); line-height: 1.8; }
+    .step-header { display: flex; justify-content: space-between; align-items: center; }
+    .step-icon { display: none; width: 18px; height: 18px; flex-shrink: 0; position: relative; }
+
+    /* ── NICHO ACCORDION ── */
+    .nicho-header { display: block; }
+    .nicho-icon { display: none; width: 18px; height: 18px; flex-shrink: 0; position: relative; margin-top: 4px; }
+
+    /* ── SCROLL DOTS ── */
+    .dep-dots, .como-dots { display: none; justify-content: center; gap: 8px; }
+    .dep-dot, .como-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--sand); opacity: 0.4; transition: opacity 0.3s, background 0.3s;
+    }
+    .dep-dot.active { opacity: 1; background: var(--earth); }
+    .como-dot.active { opacity: 1; background: var(--earth); }
+
+    /* ── DEPOIMENTOS ── */
+    .depoimentos { padding: 120px 0; background: var(--almond); }
+    .depoimentos-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .depoimentos-header { margin-bottom: 26px; }
+    .depoimentos-header .label { display: block; margin-bottom: 16px; }
+    .depoimentos-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); }
+    .depoimentos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .depoimento { background: white; padding: 36px 32px; }
+    .dep-quote { font-family: var(--font-display); font-size: 60px; font-weight: 300; color: var(--sand); line-height: 0.6; margin-bottom: 20px; }
+    .dep-text { font-family: var(--font-display); font-size: 18px; font-weight: 400; font-style: italic; line-height: 1.7; color: var(--text); margin-bottom: 24px; }
+    .dep-divider { width: 28px; height: 1px; background: var(--sand); margin-bottom: 14px; }
+    .dep-autor { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; color: var(--earth); }
+
+    /* ── FAQ ── */
+    .faq { padding: 120px 0; background: var(--white); }
+    .faq-inner { max-width: 780px; margin: 0 auto; padding: 0 48px; }
+    .faq-header { text-align: center; margin-bottom: 32px; }
+    .faq-header .label { display: block; margin-bottom: 16px; }
+    .faq-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); }
+    .faq-item { border-bottom: 1px solid var(--almond); }
+    .faq-q {
+      width: 100%; background: none; border: none; padding: 26px 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 24px;
+      cursor: pointer; text-align: left;
+    }
+    .faq-q-text { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--dark); line-height: 1.3; }
+    .faq-icon { width: 18px; height: 18px; flex-shrink: 0; position: relative; }
+    .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: var(--earth); transition: all 0.35s; }
+    .faq-icon::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+    .faq-icon::after { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+    .faq-item.open .faq-icon::after { opacity: 0; transform: translateX(-50%) rotate(90deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-a-inner { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; padding-bottom: 26px; }
+    .faq-item.open .faq-a { max-height: 200px; }
+
+    /* ── CTA FINAL ── */
+    .cta-final { padding: 120px 48px; background: var(--earth); text-align: center; position: relative; overflow: hidden; }
+    .cta-final::before {
+      content: 'jm';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Gistesy', cursive; font-size: 380px;
+      color: rgba(255,255,255,0.05); pointer-events: none; user-select: none; line-height: 1;
+    }
+    .cta-final .label--light { display: block; margin-bottom: 20px; }
+    .cta-final-title { font-family: var(--font-display); font-size: clamp(34px, 3.8vw, 60px); font-weight: 300; font-style: italic; color: white; line-height: 1.2; margin-bottom: 20px; }
+    .cta-final-text { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.65); margin-bottom: 44px; line-height: 1.8; }
+    .cta-final-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: white; color: var(--earth);
+      padding: 18px 40px;
+      font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+      transition: all 0.35s var(--ease);
+    }
+    .cta-final-btn:hover { background: var(--dark); color: var(--almond); transform: translateY(-2px); }
+    .cta-final-info { margin-top: 28px; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); padding: 64px 48px 40px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(234,222,208,0.08); margin-bottom: 32px; }
+    .footer-logo-img { display: block; }
+    .footer-crp { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(234,222,208,0.3); }
+    .footer-col-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; color: var(--sand); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13px; font-weight: 300; color: rgba(234,222,208,0.5); transition: color 0.3s; }
+    .footer-links a:hover { color: var(--sand); }
+    .footer-contact { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contact-item { font-size: 13px; font-weight: 300; color: rgba(234,222,208,0.5); }
+    .footer-bottom { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; font-size: 11px; color: rgba(234,222,208,0.2); letter-spacing: 1px; }
+
+    /* ── FLOAT WHATSAPP ── */
+    .whats-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 54px; height: 54px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: all 0.35s var(--ease);
+    }
+    .whats-float:hover { transform: scale(1.1); }
+    .whats-float svg { width: 26px; height: 26px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 18px 24px 18px 4px; }
+      nav.scrolled { padding: 12px 24px 12px 4px; }
+      .nav-links { display: none; }
+      .nav-logo svg { width: 220px; height: 54px; }
+
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { height: 110vw; max-height: 560px; }
+      .hero-photo img { object-position: top center; }
+      .hero-content { padding: 40px 24px 48px; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      .br-mobile-hide { display: none; }
+      .hero-ctas { gap: 28px; }
+
+      .sobre-inner, .tcc-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sobre-shorts-wrap { max-width: 260px; padding-top: calc(260px * 1.7778); }
+      .tcc-photo { display: none; }
+
+      /* Especialidades — stacked com accordion */
+      .nichos-header { padding: 0 24px; }
+      .nichos-grid { display: grid; grid-template-columns: 1fr; padding: 0 24px; gap: 16px; }
+      .nicho-card { padding: 32px 28px; }
+      .nicho-num { font-size: 100px; }
+      .nicho-header { display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; gap: 12px; }
+      .nicho-icon { display: block; }
+      .nicho-icon::before, .nicho-icon::after { content: ''; position: absolute; background: rgba(255,255,255,0.7); transition: all 0.35s; }
+      .nicho-icon::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+      .nicho-icon::after { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+      .nicho-card.open .nicho-icon::after { opacity: 0; transform: translateX(-50%) rotate(90deg); }
+      .nicho-body { display: none; }
+      .nicho-card.open .nicho-body { display: block; }
+
+      /* Como funciona — scroll horizontal */
+      .como-header { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+      .como-subtitle { text-align: left; max-width: 100%; }
+      .como-steps {
+        display: flex; overflow-x: auto; gap: 0;
+        scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        grid-template-columns: unset;
+      }
+      .como-steps::-webkit-scrollbar { display: none; }
+      .step { flex: 0 0 85vw; scroll-snap-align: start; }
+      .como-dots { display: flex; margin-top: 20px; }
+
+      /* Depoimentos — scroll horizontal */
+      .depoimentos-grid {
+        display: flex; overflow-x: auto;
+        gap: 16px; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; grid-template-columns: unset;
+        padding-bottom: 16px;
+      }
+      .depoimentos-grid::-webkit-scrollbar { display: none; }
+      .depoimento { flex: 0 0 85vw; scroll-snap-align: start; }
+      .dep-dots { display: flex; margin-top: 20px; }
+
+      .sobre { padding: 64px 0; }
+      .nichos { padding: 64px 0; }
+      .tcc { padding: 64px 0; }
+      .como { padding: 64px 0; }
+      .depoimentos { padding: 64px 0; }
+      .faq { padding: 64px 0; }
+      .cta-final { padding: 64px 24px; }
+      .cta-final::before { font-size: 200px; }
+
+      footer { padding: 56px 24px 32px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; padding: 0 0 40px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+
+      .sobre-inner, .como-inner, .depoimentos-inner, .faq-inner, .tcc-inner { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20consultas." class="whats-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/>
+    </svg>
+  </a>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="260" height="64" viewBox="0 20 700 90" aria-label="Jessica Miyagawa">
+        <text x="350" y="98" font-family="'Gistesy', cursive" font-size="72" text-anchor="middle">Jessica Miyagawa</text>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#nichos">Especialidades</a></li>
+      <li><a href="#tcc">TCC</a></li>
+      <li><a href="#como">Como funciona</a></li>
+      <li><a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20gostaria%20de%20agendar%20uma%20consulta." class="nav-cta" target="_blank">Agendar</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-photo">
+      <img src="assets/fotos/Jess4.jpg" alt="Jessica Miyagawa — Psicóloga" loading="eager">
+    </div>
+    <div class="hero-content">
+      <span class="label hero-label">Psicóloga · TCC · Moema/SP · Online</span>
+      <h1 class="hero-title">
+        Você já carregou<br class="br-mobile-hide">
+        isso sozinho<br>
+        <span>tempo demais.</span>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-text">
+        Terapia Cognitivo-Comportamental para adolescentes e adultos que buscam transformação real, nos relacionamentos e no bem-estar pessoal.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20gostaria%20de%20agendar%20uma%20consulta." class="btn-whats" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          Agendar pelo WhatsApp
+        </a>
+        <a href="#sobre" class="btn-secondary">Conheça o trabalho →</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="stat-num">TCC</span><span class="stat-txt">Abordagem</span></div>
+        <div><span class="stat-num">Online</span><span class="stat-txt">+ Presencial</span></div>
+        <div><span class="stat-num">Moema</span><span class="stat-txt">São Paulo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-inner">
+      <div class="sobre-video reveal">
+        <div class="sobre-shorts-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/IL5AjRrsFRo"
+            title="Jessica Miyagawa — Por que cuidar da saúde mental importa"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="sobre-content">
+        <span class="label reveal d1">Sobre Jessica Miyagawa</span>
+        <h2 class="sobre-title reveal d2">Uma trajetória que<br>começa na vida real.</h2>
+        <p class="sobre-text reveal d2">Antes de se tornar psicóloga, Jessica passou anos no universo corporativo: administração, RH e vendas em grandes empresas. Essa vivência moldou uma escuta diferente, prática, direta e sem romantismo sobre o que é difícil.</p>
+        <p class="sobre-text reveal d3">Em 2024, formou-se em Psicologia pela FMU e especializou-se em Terapia Cognitivo-Comportamental pelo IpqUSP, o Instituto de Psiquiatria da Universidade de São Paulo. Hoje atende adolescentes e adultos com foco em relacionamentos e bem-estar feminino.</p>
+        <div class="sobre-divider reveal"></div>
+        <div class="credentials reveal d4">
+          <div class="credential">Graduação em Psicologia pela FMU (2024)</div>
+          <div class="credential">Especialização em TCC pelo IpqUSP</div>
+          <div class="credential">CRP 06/211924</div>
+          <div class="credential">Presencial em Moema, São Paulo</div>
+          <div class="credential">Online para todo o Brasil</div>
+        </div>
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20gostaria%20de%20agendar%20uma%20conversa." class="btn-secondary reveal d4" style="display: inline-block; margin-top: 28px;" target="_blank">Agendar uma conversa →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NICHOS -->
+  <section class="nichos" id="nichos">
+    <div class="nichos-header">
+      <span class="label reveal">Especialidades</span>
+      <h2 class="nichos-title reveal d1">Para quem é o atendimento?</h2>
+    </div>
+    <div class="nichos-grid">
+      <div class="nicho-card rel reveal">
+        <div class="nicho-header">
+          <div>
+            <span class="nicho-tag">Homens &amp; Mulheres</span>
+            <h3 class="nicho-title">Relacionamentos</h3>
+          </div>
+          <span class="nicho-icon"></span>
+        </div>
+        <div class="nicho-body">
+          <div class="nicho-divider"></div>
+          <p class="nicho-text">Padrões que se repetem. Conflitos que não chegam a lugar nenhum. Dificuldade para se conectar de verdade, ou para colocar limites sem se sentir culpado. Se o problema parece estar sempre nos seus relacionamentos, talvez valha a pena olhar para dentro.</p>
+          <div class="nicho-temas">
+            <span class="tema">Comunicação</span>
+            <span class="tema">Limites</span>
+            <span class="tema">Padrões afetivos</span>
+            <span class="tema">Conflitos</span>
+            <span class="tema">Vínculos</span>
+          </div>
+          <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20tenho%20interesse%20em%20terapia%20para%20relacionamentos." class="nicho-cta" target="_blank">Quero conversar sobre isso →</a>
+          <span class="nicho-num">01</span>
+        </div>
+      </div>
+      <div class="nicho-card fem reveal d2">
+        <div class="nicho-header">
+          <div>
+            <span class="nicho-tag">Mulheres</span>
+            <h3 class="nicho-title">Autoestima e Bem-estar Feminino</h3>
+          </div>
+          <span class="nicho-icon"></span>
+        </div>
+        <div class="nicho-body">
+          <div class="nicho-divider"></div>
+          <p class="nicho-text">Autocobrança que não desliga. Ansiedade sem razão clara. Estresse acumulado e a sensação de que você sempre precisa dar mais, ou ser mais. Um espaço seguro e acolhedor para reconectar com o que você realmente precisa.</p>
+          <div class="nicho-temas">
+            <span class="tema">Autoestima</span>
+            <span class="tema">Ansiedade</span>
+            <span class="tema">Autocobrança</span>
+            <span class="tema">Estresse</span>
+            <span class="tema">Identidade</span>
+          </div>
+          <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20tenho%20interesse%20em%20terapia%20para%20bem-estar%20feminino." class="nicho-cta" target="_blank">Quero conversar sobre isso →</a>
+          <span class="nicho-num">02</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TCC -->
+  <section class="tcc" id="tcc">
+    <div class="tcc-inner">
+      <div class="tcc-content">
+        <span class="label label--light reveal">A Abordagem</span>
+        <h2 class="tcc-title reveal d1">Quando você entende<br>o que pensa e sente,<br>tudo começa a mudar.</h2>
+        <p class="tcc-text reveal d2">A Terapia Cognitivo-Comportamental trabalha a conexão entre pensamentos, emoções e comportamentos. O objetivo é identificar os padrões que te limitam e construir novos caminhos junto com você.</p>
+        <div class="tcc-steps reveal d3">
+          <div class="tcc-step">
+            <span class="tcc-step-num">01</span>
+            <div><h4>Identificar</h4><p>Reconhecer os pensamentos automáticos e crenças que guiam suas reações.</p></div>
+          </div>
+          <div class="tcc-step">
+            <span class="tcc-step-num">02</span>
+            <div><h4>Questionar</h4><p>Examinar se esses pensamentos são reais, úteis ou apenas habituais.</p></div>
+          </div>
+          <div class="tcc-step">
+            <span class="tcc-step-num">03</span>
+            <div><h4>Transformar</h4><p>Desenvolver respostas mais equilibradas e comportamentos que funcionam de verdade.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="tcc-photo reveal d2">
+        <img src="assets/fotos/Jessica.jpg" alt="Jessica Miyagawa">
+        <div class="tcc-badge">
+          <div class="tcc-badge-title">IpqUSP</div>
+          <div class="tcc-badge-sub">Especialização em TCC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="como" id="como">
+    <div class="como-inner">
+      <div class="como-header reveal">
+        <div class="como-header-left">
+          <span class="label">Como funciona</span>
+          <h2 class="como-title">Três passos para começar.</h2>
+        </div>
+      </div>
+      <div class="como-steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <div class="step-divider"></div>
+          <h3 class="step-title">Primeiro contato</h3>
+          <p class="step-text">Você manda uma mensagem pelo WhatsApp. Sem formulários, sem espera. Jessica responde e vocês conversam sobre disponibilidade e primeiras dúvidas.</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step-num">02</div>
+          <div class="step-divider"></div>
+          <h3 class="step-title">Sessão de acolhimento</h3>
+          <p class="step-text">A primeira sessão é um espaço para você contar o que está sentindo. Sem julgamento, com escuta ativa e clareza sobre o que a terapia pode fazer por você.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-num">03</div>
+          <div class="step-divider"></div>
+          <h3 class="step-title">Processo terapêutico</h3>
+          <p class="step-text">Com a TCC, cada sessão tem um propósito. Você sai com ferramentas reais, não apenas com a sensação de ter desabafado.</p>
+        </div>
+      </div>
+      <div class="como-dots">
+        <div class="como-dot active"></div>
+        <div class="como-dot"></div>
+        <div class="como-dot"></div>
+      </div>
+      <div style="text-align: center; margin-top: 56px;" class="reveal">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20gostaria%20de%20agendar%20uma%20consulta." class="btn-whats" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos">
+    <div class="depoimentos-inner">
+      <div class="depoimentos-header">
+        <span class="label reveal">Depoimentos</span>
+        <h2 class="depoimentos-title reveal d1">O que dizem os pacientes.</h2>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento reveal">
+          <div class="dep-quote">"</div>
+          <p class="dep-text">Nunca imaginei que terapia pudesse ser tão direta e prática. Comecei a entender meus padrões já nas primeiras sessões.</p>
+          <div class="dep-divider"></div>
+          <span class="dep-autor">M.S. · Relacionamentos</span>
+        </div>
+        <div class="depoimento reveal d1">
+          <div class="dep-quote">"</div>
+          <p class="dep-text">A Jessica me ajudou a perceber que minha autocobrança era excessiva e me deu ferramentas reais para mudar isso.</p>
+          <div class="dep-divider"></div>
+          <span class="dep-autor">C.R. · Bem-estar Feminino</span>
+        </div>
+        <div class="depoimento reveal d2">
+          <div class="dep-quote">"</div>
+          <p class="dep-text">Finalmente encontrei uma psicóloga que fala de um jeito que faz sentido pra mim. Direta, sem rodeios, mas muito acolhedora.</p>
+          <div class="dep-divider"></div>
+          <span class="dep-autor">R.M. · Relacionamentos</span>
+        </div>
+      </div>
+      <div class="dep-dots">
+        <div class="dep-dot active"></div>
+        <div class="dep-dot"></div>
+        <div class="dep-dot"></div>
+      </div>
+      <div style="text-align: center; margin-top: 48px;" class="reveal">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20gostaria%20de%20come%C3%A7ar%20minha%20terapia." class="btn-secondary" target="_blank">Quero começar minha jornada →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="faq-inner">
+      <div class="faq-header reveal">
+        <span class="label">Dúvidas frequentes</span>
+        <h2 class="faq-title">O que você precisa saber.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q"><span class="faq-q-text">Quanto tempo dura cada sessão?</span><span class="faq-icon"></span></button>
+          <div class="faq-a"><p class="faq-a-inner">As sessões têm duração de 50 minutos, com frequência semanal. A regularidade é fundamental para que o processo terapêutico avance de forma consistente.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q"><span class="faq-q-text">O atendimento online funciona tão bem quanto o presencial?</span><span class="faq-icon"></span></button>
+          <div class="faq-a"><p class="faq-a-inner">Sim. A TCC é uma das abordagens com mais evidências de eficácia no formato online. O que importa é a qualidade da conexão e do processo, não o formato. Muitos pacientes preferem o atendimento online pela praticidade e pelo conforto de estar em casa.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q"><span class="faq-q-text">Qual a diferença entre terapia para relacionamentos e terapia de casais?</span><span class="faq-icon"></span></button>
+          <div class="faq-a"><p class="faq-a-inner">São abordagens diferentes. A terapia de casal trabalha a relação entre duas pessoas. Aqui, o foco é no indivíduo: entender seus próprios padrões, crenças e comportamentos. Cada pessoa vem sozinha.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q"><span class="faq-q-text">Em quanto tempo vejo resultados?</span><span class="faq-icon"></span></button>
+          <div class="faq-a"><p class="faq-a-inner">A TCC é focada em resultados. Muitos pacientes percebem mudanças concretas já nas primeiras semanas. O tempo total depende dos objetivos de cada caso, mas não é uma terapia de anos sem direção.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q"><span class="faq-q-text">Como faço para começar?</span><span class="faq-icon"></span></button>
+          <div class="faq-a"><p class="faq-a-inner">Pelo WhatsApp. Mande uma mensagem, conte um pouco sobre o que está sentindo e combinamos uma sessão. Sem formulários, sem processos complicados.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <span class="label label--light reveal">Pronto para começar?</span>
+    <h2 class="cta-final-title reveal d1">O primeiro passo<br>é uma mensagem.</h2>
+    <p class="cta-final-text reveal d2">Uma conversa simples. Sem julgamento, sem pressa.<br>Só você sendo ouvido de verdade.</p>
+    <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20gostaria%20de%20agendar%20uma%20consulta." class="cta-final-btn reveal d3" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+      Falar pelo WhatsApp
+    </a>
+    <p class="cta-final-info reveal d4">CRP 06/211924 · Moema, São Paulo · Online para todo o Brasil</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="44" viewBox="0 0 700 130" aria-label="Jessica Miyagawa" style="margin-bottom:12px; margin-left:18px;">
+          <text x="0" y="98" font-family="'Gistesy', cursive" font-size="72" fill="#EADED0" text-anchor="start" opacity="0.7">Jessica Miyagawa</text>
+        </svg>
+        <p class="footer-crp" style="margin-left:18px;">CRP 06/211924</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navegação</p>
+        <ul class="footer-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#nichos">Especialidades</a></li>
+          <li><a href="#tcc">TCC</a></li>
+          <li><a href="#como">Como funciona</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contato</p>
+        <div class="footer-contact">
+          <span class="footer-contact-item">WhatsApp: (11) 9 4487-6278</span>
+          <span class="footer-contact-item">psi.jessicamiyagawa@gmail.com</span>
+          <span class="footer-contact-item">@psijessicamiyagawa</span>
+          <span class="footer-contact-item">Clínica Be One · Av. Indianópolis, 281 · Moema/SP</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Jessica Miyagawa · Todos os direitos reservados</span>
+      <span>Psicóloga CRP 06/211924</span>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // FAQ
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Especialidades — accordion mobile
+    document.querySelectorAll('.nicho-header').forEach(header => {
+      header.addEventListener('click', () => {
+        if (window.innerWidth > 900) return;
+        header.closest('.nicho-card').classList.toggle('open');
+      });
+    });
+
+    // Scroll dots — mobile only
+    if (window.innerWidth <= 900) {
+      const comoSteps = document.querySelector('.como-steps');
+      const comoDots = document.querySelectorAll('.como-dot');
+      if (comoSteps && comoDots.length) {
+        comoSteps.addEventListener('scroll', () => {
+          const index = Math.round(comoSteps.scrollLeft / comoSteps.offsetWidth);
+          comoDots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }, { passive: true });
+      }
+
+      const depGrid = document.querySelector('.depoimentos-grid');
+      const depDots = document.querySelectorAll('.dep-dot');
+      if (depGrid && depDots.length) {
+        depGrid.addEventListener('scroll', () => {
+          const index = Math.round(depGrid.scrollLeft / depGrid.offsetWidth);
+          depDots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }, { passive: true });
+      }
+    }
+  </script>
+</body>
+</html>

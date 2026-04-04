@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terapia para Relacionamentos — Jessica Miyagawa Psicóloga TCC</title>
+  <meta name="description" content="Você repete os mesmos padrões nos relacionamentos? A terapia TCC ajuda a entender o que trava e mudar. Atendimento em Moema/SP e online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Gistesy';
+      src: url('assets/fonts/Gistesy.ttf') format('truetype');
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --earth:      #8C916C;
+      --sand:       #ACB087;
+      --almond:     #E3E8D5;
+      --moss:       #8C916C;
+      --sage:       #ACB087;
+      --dark:       #23271a;
+      --text:       #252d1c;
+      --text-light: #58654a;
+      --white:      #ffffff;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+      --max-w: 1200px;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--almond); color: var(--text); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--earth);
+    }
+    .label--light { color: var(--sand); }
+    .label--white { color: rgba(255,255,255,0.5); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* ── HEADER ── */
+    .lp-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.4s var(--ease);
+    }
+    .lp-header.scrolled {
+      background: var(--almond);
+      padding: 10px 48px;
+      box-shadow: 0 1px 0 rgba(140,145,108,0.2);
+    }
+    .header-logo svg text { fill: white; transition: fill 0.4s ease; }
+    .lp-header.scrolled .header-logo svg text { fill: #8C916C; }
+    .header-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: white;
+      padding: 10px 24px;
+      font-family: var(--font-body); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+      transition: all 0.3s var(--ease);
+    }
+    .header-cta:hover { background: #1da853; }
+    .header-cta svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    /* ── HERO ── */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 52% 48%; }
+    .hero-photo { position: relative; overflow: hidden; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .hero-content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 64px 80px;
+      background: var(--almond);
+    }
+    .hero-label { margin-bottom: 28px; }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 3.8vw, 62px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.1; color: var(--dark);
+      margin-bottom: 28px;
+    }
+    .hero-title span { color: var(--earth); }
+    .hero-divider { width: 48px; height: 1px; background: var(--sand); margin-bottom: 24px; }
+    .hero-video { margin-bottom: 28px; }
+    .hero-shorts-wrap { width: 240px; height: 427px; overflow: hidden; box-shadow: 0 16px 48px rgba(35,39,26,0.12); }
+    .hero-shorts-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .hero-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; max-width: 380px; margin-bottom: 44px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: white;
+      padding: 16px 32px;
+      font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+      transition: all 0.3s var(--ease);
+      align-self: flex-start;
+      margin-bottom: 40px;
+    }
+    .hero-cta:hover { background: #1da853; transform: translateY(-2px); }
+    .hero-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .hero-note { font-size: 11px; color: var(--text-light); letter-spacing: 1px; opacity: 0.7; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 20px; }
+    .stat-num { font-family: var(--font-display); font-size: 26px; font-weight: 400; color: var(--earth); display: block; line-height: 1; margin-bottom: 4px; }
+    .stat-txt { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); font-weight: 500; }
+
+    /* ── RECONHECIMENTO ── */
+    .reconhecimento { padding: 120px 0; background: var(--white); }
+    .reconhecimento-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .rec-header { margin-bottom: 20px; }
+    .rec-header .label { display: block; margin-bottom: 20px; }
+    .rec-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 2.8vw, 48px);
+      font-weight: 300; font-style: italic;
+      color: var(--dark); max-width: 640px; line-height: 1.2;
+    }
+    .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--almond); }
+    .rec-item {
+      background: white;
+      padding: 36px 40px;
+      display: flex; gap: 24px; align-items: flex-start;
+      transition: background 0.3s;
+    }
+    .rec-item:hover { background: #faf8f5; }
+    .rec-num {
+      font-family: var(--font-display); font-size: 42px; font-weight: 300;
+      color: var(--sand); line-height: 1; flex-shrink: 0; width: 48px;
+    }
+    .rec-item-title { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--dark); margin-bottom: 6px; line-height: 1.3; padding-top: 6px; }
+    .rec-item-desc { font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 1.8; }
+
+    /* ── SECTION CTA ── */
+    .section-cta {
+      display: flex; justify-content: center;
+      padding-top: 48px;
+    }
+    .section-cta a {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: white;
+      padding: 16px 32px;
+      font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+      transition: all 0.3s var(--ease);
+    }
+    .section-cta a:hover { background: #1da853; transform: translateY(-2px); }
+    .section-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── PULL QUOTE ── */
+    .pullquote { padding: 100px 48px; background: var(--earth); position: relative; overflow: hidden; }
+    .pullquote::before {
+      content: '"';
+      position: absolute; top: -60px; left: 32px;
+      font-family: var(--font-display); font-size: 500px; font-weight: 300;
+      color: rgba(255,255,255,0.06); line-height: 1; pointer-events: none; user-select: none;
+    }
+    .pullquote-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; }
+    .pullquote-text {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.4vw, 54px);
+      font-weight: 300; font-style: italic;
+      color: white; line-height: 1.3; margin-bottom: 32px;
+    }
+    .pullquote-text em { color: rgba(255,255,255,0.5); font-style: normal; }
+    .pullquote-attr { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 500; }
+
+    /* ── BENEFÍCIOS ── */
+    .beneficios { padding: 120px 0; background: var(--almond); }
+    .beneficios-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .beneficios-header { margin-bottom: 20px; }
+    .beneficios-header .label { display: block; margin-bottom: 20px; }
+    .beneficios-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); }
+    .beneficios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .beneficio {
+      background: white; padding: 48px 36px;
+      transition: transform 0.35s var(--ease);
+    }
+    .beneficio:hover { transform: translateY(-4px); }
+    .beneficio-num {
+      font-family: var(--font-display); font-size: 80px; font-weight: 300;
+      color: var(--almond); line-height: 1; margin-bottom: 20px;
+      transition: color 0.35s;
+    }
+    .beneficio:hover .beneficio-num { color: var(--sand); }
+    .beneficio-divider { width: 30px; height: 1px; background: var(--sand); margin-bottom: 16px; }
+    .beneficio-title { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 10px; line-height: 1.25; }
+    .beneficio-text { font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 1.8; }
+
+    /* ── SOBRE ── */
+    .sobre { padding: 120px 0; background: var(--white); }
+    .sobre-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .sobre-content .label { display: block; margin-bottom: 20px; }
+    .sobre-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 400; line-height: 1.2; color: var(--dark); margin-bottom: 24px; }
+    .sobre-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; margin-bottom: 16px; }
+    .sobre-divider { width: 40px; height: 1px; background: var(--sand); margin: 28px 0; }
+    .credentials { display: flex; flex-direction: column; gap: 10px; }
+    .credential { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 300; color: var(--text-light); }
+    .credential::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--earth); flex-shrink: 0; }
+    .sobre-photo { position: relative; }
+    .sobre-photo img { width: 100%; height: 720px; object-fit: cover; object-position: top center; }
+    .sobre-photo::after { content: ''; position: absolute; bottom: -20px; left: -20px; width: 180px; height: 180px; background: var(--almond); z-index: -1; }
+
+    /* ── TCC ── */
+    .tcc { padding: 120px 0; background: var(--dark); }
+    .tcc-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .tcc-header { max-width: 640px; margin-bottom: 24px; }
+    .tcc-header .label--light { display: block; margin-bottom: 20px; }
+    .tcc-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 50px); font-weight: 300; font-style: italic; line-height: 1.2; color: var(--almond); margin-bottom: 20px; }
+    .tcc-subtitle { font-size: 15px; font-weight: 300; color: rgba(234,222,208,0.5); line-height: 1.9; }
+    .tcc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(234,222,208,0.08); }
+    .tcc-item { background: var(--dark); padding: 44px 36px; }
+    .tcc-item-num { font-family: var(--font-display); font-size: 32px; font-weight: 300; color: var(--earth); line-height: 1; margin-bottom: 20px; }
+    .tcc-item-title { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--almond); margin-bottom: 12px; }
+    .tcc-item-text { font-size: 13px; font-weight: 300; color: rgba(234,222,208,0.5); line-height: 1.8; }
+
+    /* ── DEPOIMENTOS ── */
+    .depoimentos { padding: 120px 0; background: var(--almond); }
+    .depoimentos-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .dep-header { margin-bottom: 20px; }
+    .dep-header .label { display: block; margin-bottom: 20px; }
+    .dep-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); }
+    .dep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .dep-card { background: white; padding: 40px 32px; }
+    .dep-quote-mark { font-family: var(--font-display); font-size: 60px; font-weight: 300; color: var(--sand); line-height: 0.6; margin-bottom: 20px; }
+    .dep-text { font-family: var(--font-display); font-size: 17px; font-weight: 400; font-style: italic; line-height: 1.75; color: var(--text); margin-bottom: 24px; }
+    .dep-divider { width: 28px; height: 1px; background: var(--sand); margin-bottom: 14px; }
+    .dep-autor { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; color: var(--earth); }
+    .dep-context { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); opacity: 0.6; margin-top: 4px; }
+
+    /* ── COMO FUNCIONA ── */
+    .como { padding: 120px 0; background: var(--white); }
+    .como-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .como-header { margin-bottom: 20px; }
+    .como-header .label { display: block; margin-bottom: 20px; }
+    .como-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); }
+    .como-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--almond); }
+    .step { background: white; padding: 52px 36px; transition: background 0.35s; }
+    .step:hover { background: var(--almond); }
+    .step-num { font-family: var(--font-display); font-size: 72px; font-weight: 300; color: var(--almond); line-height: 1; margin-bottom: 20px; transition: color 0.35s; }
+    .step:hover .step-num { color: var(--sand); }
+    .step-divider { width: 30px; height: 1px; background: var(--sand); margin-bottom: 16px; }
+    .step-title { font-family: var(--font-display); font-size: 24px; font-weight: 400; color: var(--dark); margin-bottom: 10px; }
+    .step-text { font-size: 14px; font-weight: 300; color: var(--text-light); line-height: 1.8; }
+    .como-cta-row { padding: 48px 0; text-align: center; background: white; margin-top: 1px; }
+    .btn-whats {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: white;
+      padding: 16px 40px;
+      font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+      transition: all 0.3s var(--ease);
+    }
+    .btn-whats:hover { background: #1da853; transform: translateY(-2px); }
+    .btn-whats svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── FAQ ── */
+    .faq { padding: 120px 0; background: var(--almond); }
+    .faq-inner { max-width: 780px; margin: 0 auto; padding: 0 48px; }
+    .faq-header { text-align: center; margin-bottom: 16px; }
+    .faq-header .label { display: block; margin-bottom: 20px; }
+    .faq-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 300; font-style: italic; color: var(--dark); }
+    .faq-item { border-bottom: 1px solid rgba(140,145,108,0.2); }
+    .faq-q { width: 100%; background: none; border: none; padding: 28px 0; display: flex; justify-content: space-between; align-items: center; gap: 24px; cursor: pointer; text-align: left; }
+    .faq-q-text { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--dark); line-height: 1.3; }
+    .faq-icon { width: 18px; height: 18px; flex-shrink: 0; position: relative; }
+    .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: var(--earth); transition: all 0.35s; }
+    .faq-icon::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+    .faq-icon::after { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+    .faq-item.open .faq-icon::after { opacity: 0; transform: translateX(-50%) rotate(90deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-a-inner { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; padding-bottom: 28px; }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    /* ── CTA FINAL ── */
+    .cta-final { padding: 120px 48px; background: var(--earth); text-align: center; position: relative; overflow: hidden; }
+    .cta-final::before {
+      content: 'jm';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Gistesy', cursive; font-size: 380px;
+      color: rgba(255,255,255,0.05); pointer-events: none; user-select: none; line-height: 1;
+    }
+    .cta-final .label--white { display: block; margin-bottom: 20px; }
+    .cta-final-title { font-family: var(--font-display); font-size: clamp(34px, 3.8vw, 60px); font-weight: 300; font-style: italic; color: white; line-height: 1.2; margin-bottom: 20px; }
+    .cta-final-text { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.65); margin-bottom: 48px; line-height: 1.8; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-final-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: white; color: var(--earth);
+      padding: 18px 40px;
+      font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+      transition: all 0.35s var(--ease);
+    }
+    .cta-final-btn:hover { background: var(--dark); color: var(--almond); transform: translateY(-2px); }
+    .cta-final-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .cta-final-info { margin-top: 28px; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); padding: 40px 48px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-crp { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(234,222,208,0.3); margin-top: 8px; }
+    .footer-right { text-align: right; }
+    .footer-link { font-size: 12px; color: rgba(234,222,208,0.35); transition: color 0.3s; display: block; margin-bottom: 8px; }
+    .footer-link:hover { color: var(--sand); }
+    .footer-copy { font-size: 11px; color: rgba(234,222,208,0.2); letter-spacing: 1px; }
+
+    /* ── FLOAT WHATSAPP ── */
+    .whats-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      width: 54px; height: 54px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: all 0.35s var(--ease);
+    }
+    .whats-float:hover { transform: scale(1.1); }
+    .whats-float svg { width: 26px; height: 26px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .lp-header { padding: 16px 24px; }
+      .lp-header.scrolled { padding: 12px 24px; }
+      .header-logo svg { width: 200px; height: 48px; }
+      .header-cta .header-cta-text { display: none; }
+
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { height: 100vw; max-height: 520px; }
+      .hero-content { padding: 40px 24px 56px; }
+      .hero-video { align-self: center; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+
+      .reconhecimento-inner, .beneficios-inner, .sobre-inner,
+      .tcc-inner, .depoimentos-inner, .como-inner { padding: 0 24px; }
+      .rec-grid { grid-template-columns: 1fr; }
+
+      .rec-item {
+        cursor: pointer; align-items: center;
+        position: relative;
+        padding: 24px 52px 24px 20px;
+        gap: 14px;
+      }
+
+      .tcc-item {
+        cursor: pointer; position: relative;
+        padding-right: 40px;
+      }
+      .tcc-item-text {
+        max-height: 0; overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+        opacity: 0; margin-top: 0;
+      }
+      .tcc-item.open .tcc-item-text {
+        max-height: 300px; opacity: 1; margin-top: 10px;
+      }
+      .tcc-item-title { margin-bottom: 0; }
+      .tcc-item::after {
+        content: '+';
+        position: absolute; right: 0; top: 0;
+        font-family: var(--font-body); font-size: 22px; font-weight: 300;
+        color: rgba(234,222,208,0.35); transition: transform 0.3s ease;
+        line-height: 1.2;
+      }
+      .tcc-item.open::after {
+        transform: rotate(45deg);
+      }
+      .rec-num {
+        font-size: 28px; width: 36px;
+      }
+      .rec-item-title { font-size: 17px; padding-top: 4px; margin-bottom: 0; }
+      .rec-item-desc {
+        max-height: 0; overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+        opacity: 0; margin-top: 0;
+      }
+      .rec-item.open .rec-item-desc {
+        max-height: 200px; opacity: 1; margin-top: 8px;
+      }
+      .rec-item::after {
+        content: '+';
+        position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+        font-family: var(--font-body); font-size: 22px; font-weight: 300;
+        color: var(--sand); transition: transform 0.3s ease;
+        line-height: 1;
+      }
+      .rec-item.open::after {
+        transform: translateY(-50%) rotate(45deg);
+      }
+      .tcc-grid { grid-template-columns: 1fr; }
+
+      /* Carrossel depoimentos */
+      .dep-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+      .dep-grid::-webkit-scrollbar { display: none; }
+      .dep-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+      }
+
+      /* Dots depoimentos */
+      .dep-dots {
+        display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+      }
+      .dep-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--sand); opacity: 0.4; transition: opacity 0.3s;
+      }
+      .dep-dot.active { opacity: 1; background: var(--earth); }
+
+      /* Carrossel como funciona */
+      .como-steps {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        background: transparent;
+      }
+      .como-steps::-webkit-scrollbar { display: none; }
+      .step {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+      }
+
+      /* Dots como funciona */
+      .como-dots {
+        display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+      }
+      .como-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--sand); opacity: 0.4; transition: opacity 0.3s;
+      }
+      .como-dot.active { opacity: 1; background: var(--earth); }
+
+      /* Carrossel benefícios */
+      .beneficios-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+      .beneficios-grid::-webkit-scrollbar { display: none; }
+      .beneficio {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+      }
+
+      /* Dots indicadores */
+      .beneficios-dots {
+        display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+      }
+      .beneficios-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--sand); opacity: 0.4;
+        transition: opacity 0.3s;
+      }
+      .beneficios-dot.active { opacity: 1; background: var(--earth); }
+      .sobre-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sobre-photo img { height: 520px; }
+      .sobre-photo::after { display: none; }
+
+      .reconhecimento, .beneficios, .sobre, .tcc,
+      .depoimentos, .como, .faq { padding: 72px 0; }
+      .pullquote { padding: 72px 24px; }
+      .cta-final { padding: 72px 24px; }
+      .cta-final::before { font-size: 200px; }
+      .faq-inner { padding: 0 24px; }
+
+      footer { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFQPNW07F5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JFQPNW07F5');
+    gtag('config', 'AW-17342072257');
+  </script>
+</head>
+<body>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." class="whats-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+  </a>
+
+  <!-- HEADER -->
+  <header class="lp-header" id="header">
+    <a href="index.html" class="header-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="240" height="58" viewBox="0 20 700 90" aria-label="Jessica Miyagawa">
+        <text x="350" y="98" font-family="'Gistesy', cursive" font-size="72" text-anchor="middle">Jessica Miyagawa</text>
+      </svg>
+    </a>
+    <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." class="header-cta" target="_blank">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+      <span class="header-cta-text">Falar com Jessica</span>
+    </a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-photo">
+      <img src="assets/fotos/Jess4.jpg" alt="Jessica Miyagawa — Psicóloga" loading="eager">
+    </div>
+    <div class="hero-content">
+      <span class="label hero-label reveal">Psicologia · Relacionamentos · TCC · Moema/SP · Online</span>
+      <h1 class="hero-title reveal d1">
+        Você ensina as pessoas <span>a te tratar.</span>
+      </h1>
+      <div class="hero-divider reveal d2"></div>
+      <div class="hero-video reveal d2">
+        <div class="hero-shorts-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/IL5AjRrsFRo"
+            title="Jessica Miyagawa — Por que cuidar da saúde mental importa"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <p class="hero-text reveal d2">
+        Não pelo que você sente por dentro. Pelo que você repete, permite ou silencia.
+        <br><br>
+        Sem perceber, você vai mostrando até onde podem ir com você. A terapia ajuda a ver isso. E a mudar o que você não quer mais ensinar.
+      </p>
+      <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." class="hero-cta reveal d3" target="_blank">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+        Quero conversar
+      </a>
+      <div class="hero-stats reveal d4">
+        <div><span class="stat-num">TCC</span><span class="stat-txt">Abordagem</span></div>
+        <div><span class="stat-num">Online</span><span class="stat-txt">+ Presencial</span></div>
+        <div><span class="stat-num">Moema</span><span class="stat-txt">São Paulo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECONHECIMENTO -->
+  <section class="reconhecimento">
+    <div class="reconhecimento-inner">
+      <div class="rec-header reveal">
+        <span class="label">Você se identifica?</span>
+        <h2 class="rec-title">Situações que talvez você reconheça</h2>
+      </div>
+      <div class="rec-grid">
+        <div class="rec-item reveal d1">
+          <span class="rec-num">01</span>
+          <div>
+            <h3 class="rec-item-title">As brigas sempre terminam do mesmo jeito</h3>
+            <p class="rec-item-desc">O assunto muda, mas o padrão se repete. A relação aprendeu que pode continuar assim. E vai repetir enquanto algo não mudar.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal d2">
+          <span class="rec-num">02</span>
+          <div>
+            <h3 class="rec-item-title">Você diz "tá tudo bem", mas se fecha</h3>
+            <p class="rec-item-desc">O desconforto não vira conversa. Vira silêncio, afastamento. E o outro aprende que pode continuar exatamente como está.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal d1">
+          <span class="rec-num">03</span>
+          <div>
+            <h3 class="rec-item-title">Ciúme ou insegurança que você não controla</h3>
+            <p class="rec-item-desc">Você sabe que está exagerando, mas o sentimento aparece do mesmo jeito. E você reage. E o padrão se repete.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal d2">
+          <span class="rec-num">04</span>
+          <div>
+            <h3 class="rec-item-title">Um término que você não consegue superar</h3>
+            <p class="rec-item-desc">Faz tempo que acabou, mas você ainda está preso lá. Não é fraqueza. É algo que precisa ser processado.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal d1">
+          <span class="rec-num">05</span>
+          <div>
+            <h3 class="rec-item-title">Você atrai sempre o mesmo tipo de pessoa</h3>
+            <p class="rec-item-desc">Os relacionamentos mudam de rosto, mas não de padrão. E você não entende por quê.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal d2">
+          <span class="rec-num">06</span>
+          <div>
+            <h3 class="rec-item-title">Difícil sustentar um limite sem ceder</h3>
+            <p class="rec-item-desc">Você coloca um limite, mas quando o outro fica desconfortável, você corre pra aliviar. E acaba voltando atrás. De novo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20me%20identifiquei%20com%20as%20situa%C3%A7%C3%B5es%20da%20p%C3%A1gina%20e%20gostaria%20de%20conversar." target="_blank">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          Me identifiquei
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="pullquote">
+    <div class="pullquote-inner">
+      <p class="pullquote-text reveal">
+        "As pessoas não aprendem sobre você pelo que você <em>sente.</em>
+        Elas aprendem pelo que você sustenta."
+      </p>
+      <span class="pullquote-attr reveal d2">Jessica Miyagawa · Psicóloga TCC</span>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="beneficios">
+    <div class="beneficios-inner">
+      <div class="beneficios-header reveal">
+        <span class="label">O que muda com a terapia</span>
+        <h2 class="beneficios-title">Mais clareza. Menos repetição.</h2>
+      </div>
+      <div class="beneficios-grid">
+        <div class="beneficio reveal d1">
+          <div class="beneficio-num">01</div>
+          <div class="beneficio-divider"></div>
+          <h3 class="beneficio-title">Você vê o que está ensinando</h3>
+          <p class="beneficio-text">O que você repete. O que você permite. O que você silencia. Quando você consegue ver isso, ele deixa de ser invisível. E aí começa a mudar.</p>
+        </div>
+        <div class="beneficio reveal d2">
+          <div class="beneficio-num">02</div>
+          <div class="beneficio-divider"></div>
+          <h3 class="beneficio-title">O que você sente e o que você mostra começam a combinar</h3>
+          <p class="beneficio-text">Quando as duas coisas estão desalinhadas, a relação fica confusa. Você diz "não tem problema" e se afasta. A terapia ajuda a fechar essa distância.</p>
+        </div>
+        <div class="beneficio reveal d3">
+          <div class="beneficio-num">03</div>
+          <div class="beneficio-divider"></div>
+          <h3 class="beneficio-title">Você aprende a sustentar o que importa</h3>
+          <p class="beneficio-text">Limite não é frieza. É clareza. E conseguir sustentar um limite sem correr pra aliviar o desconforto do outro é algo que se aprende na terapia.</p>
+        </div>
+      </div>
+      <div class="beneficios-dots">
+        <div class="beneficios-dot active"></div>
+        <div class="beneficios-dot"></div>
+        <div class="beneficios-dot"></div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20quero%20mudar%20meus%20padr%C3%B5es." target="_blank">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          Quero mudar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-inner">
+      <div class="sobre-content">
+        <span class="label reveal">Sobre mim</span>
+        <h2 class="sobre-title reveal d1">Oi, sou a Jessica.<br>E já passei por isso também.</h2>
+        <p class="sobre-text reveal d2">
+          Antes da psicologia, trabalhei anos com administração, RH e vendas. Ambientes de alta pressão, relações intensas, cobranças de todos os lados. Sei o que é carregar tudo isso enquanto tenta manter as relações em pé.
+        </p>
+        <p class="sobre-text reveal d2">
+          Foi a terapia que me deu clareza sobre o que eu repetia sem perceber. Os padrões que eu mantinha, os limites que eu não conseguia sustentar. Esse processo mudou a forma como eu me relaciono comigo e com os outros.
+        </p>
+        <p class="sobre-text reveal d2">
+          Hoje sou especialista em TCC pelo IPq-USP e trabalho lado a lado com quem está nesse mesmo caminho. Não existe receita pronta. Mas existe um processo. E eu estou aqui pra percorrê-lo com você.
+        </p>
+        <div class="sobre-divider reveal d3"></div>
+        <div class="credentials reveal d3">
+          <div class="credential">Psicóloga, CRP 06/211924</div>
+          <div class="credential">Especialização em TCC pelo IPq-USP</div>
+          <div class="credential">Atendimento presencial em Moema, SP</div>
+          <div class="credential">Atendimento online para todo o Brasil</div>
+        </div>
+      </div>
+      <div class="sobre-photo reveal d2">
+        <img src="assets/fotos/Jessica2.jpg" alt="Jessica Miyagawa — Psicóloga TCC">
+      </div>
+    </div>
+    <div class="section-cta reveal" style="max-width: var(--max-w); margin: 0 auto; padding: 48px 48px 0;">
+      <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." target="_blank">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+        Quero conversar
+      </a>
+    </div>
+  </section>
+
+  <!-- TCC -->
+  <section class="tcc">
+    <div class="tcc-inner">
+      <div class="tcc-header reveal">
+        <span class="label label--light">A abordagem</span>
+        <h2 class="tcc-title">TCC para relacionamentos, na prática</h2>
+        <p class="tcc-subtitle">A Terapia Cognitivo-Comportamental não é sobre falar de problemas. É sobre entender como você pensa, sente e age. E trabalhar isso de forma estruturada.</p>
+      </div>
+      <div class="tcc-grid">
+        <div class="tcc-item reveal d1">
+          <div class="tcc-item-num">01</div>
+          <h3 class="tcc-item-title">Identificar os padrões</h3>
+          <p class="tcc-item-text">Antes de mudar qualquer coisa, você precisa ver o que está acontecendo. Os gatilhos, as reações automáticas, o que você permite sem perceber. O que você repete sem querer.</p>
+        </div>
+        <div class="tcc-item reveal d2">
+          <div class="tcc-item-num">02</div>
+          <h3 class="tcc-item-title">Questionar o que mantém o padrão</h3>
+          <p class="tcc-item-text">Muitos comportamentos que prejudicam os relacionamentos fazem sentido dentro de uma lógica aprendida. A terapia ajuda a questionar essa lógica. Com cuidado, sem julgamento.</p>
+        </div>
+        <div class="tcc-item reveal d3">
+          <div class="tcc-item-num">03</div>
+          <h3 class="tcc-item-title">Praticar novas formas de responder</h3>
+          <p class="tcc-item-text">Entendimento sem prática não muda nada. A TCC tem ferramentas concretas para treinar novas formas de responder, de se posicionar, de sustentar o que importa.</p>
+        </div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." target="_blank">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          Quero conversar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="depoimentos-inner">
+      <div class="dep-header reveal">
+        <span class="label">O que dizem os pacientes</span>
+        <h2 class="dep-title">Quem passou por esse processo</h2>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-card reveal d1">
+          <div class="dep-quote-mark">"</div>
+          <p class="dep-text">Eu achava que o problema era a outra pessoa. Depois de alguns meses, percebi que o problema era o padrão que eu repetia em todos os relacionamentos. Isso mudou a forma como eu me relaciono com tudo.</p>
+          <div class="dep-divider"></div>
+          <div class="dep-autor">R. M.</div>
+          <div class="dep-context">35 anos · Atendimento online</div>
+        </div>
+        <div class="dep-card reveal d2">
+          <div class="dep-quote-mark">"</div>
+          <p class="dep-text">Fui sozinha pro consultório e aprendi a me comunicar diferente. A relação melhorou a partir de mim, porque eu mudei o que eu conseguia mudar. Não sabia que isso era possível.</p>
+          <div class="dep-divider"></div>
+          <div class="dep-autor">C. F.</div>
+          <div class="dep-context">41 anos · Presencial em Moema</div>
+        </div>
+        <div class="dep-card reveal d3">
+          <div class="dep-quote-mark">"</div>
+          <p class="dep-text">Demorei a entender que meu ciúme não era sobre a outra pessoa. Era sobre o que eu acreditava de mim mesmo. Esse foi o ponto de virada. A Jessica foi fundamental nisso.</p>
+          <div class="dep-divider"></div>
+          <div class="dep-autor">T. A.</div>
+          <div class="dep-context">29 anos · Atendimento online</div>
+        </div>
+      </div>
+      <div class="dep-dots">
+        <div class="dep-dot active"></div>
+        <div class="dep-dot"></div>
+        <div class="dep-dot"></div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." target="_blank">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          Quero conversar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="como" id="como-funciona">
+    <div class="como-inner">
+      <div class="como-header reveal">
+        <span class="label">Como funciona</span>
+        <h2 class="como-title">Do primeiro contato ao processo</h2>
+      </div>
+      <div class="como-steps">
+        <div class="step reveal d1">
+          <div class="step-num">01</div>
+          <div class="step-divider"></div>
+          <h3 class="step-title">Primeira conversa</h3>
+          <p class="step-text">Você me chama no WhatsApp e conta um pouco sobre o que está vivendo. A gente vê juntos se faz sentido trabalhar isso. Sem compromisso.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-num">02</div>
+          <div class="step-divider"></div>
+          <h3 class="step-title">Sessão de avaliação</h3>
+          <p class="step-text">Na primeira sessão, entendo melhor seu contexto, seus objetivos, o que você quer mudar. A partir daí, traçamos um caminho com direção.</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step-num">03</div>
+          <div class="step-divider"></div>
+          <h3 class="step-title">Processo terapêutico</h3>
+          <p class="step-text">Sessões semanais, presenciais ou online. Um espaço só seu para trabalhar o que está travando. Com método, com cuidado, com resultado.</p>
+        </div>
+      </div>
+      <div class="como-dots">
+        <div class="como-dot active"></div>
+        <div class="como-dot"></div>
+        <div class="como-dot"></div>
+      </div>
+      <div class="section-cta reveal">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." target="_blank">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          Quero começar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <div class="faq-header reveal">
+        <span class="label">Dúvidas frequentes</span>
+        <h2 class="faq-title">Perguntas que aparecem bastante</h2>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          <span class="faq-q-text">Preciso ir com meu parceiro ou parceira?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner">Não. A maioria das pessoas começa sozinha e isso já gera muita mudança. O trabalho individual em terapia de relacionamentos é sobre entender o seu papel nos padrões, o que você pode mudar a partir de você. Se fizer sentido incluir o parceiro mais pra frente, conversamos sobre isso.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          <span class="faq-q-text">Em quanto tempo vou ver resultados?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner">Depende do que você está trazendo. A TCC tem uma estrutura focada em resultados, não é uma terapia de anos sem fim. Muitas pessoas já percebem diferença no comportamento e na clareza emocional nas primeiras semanas.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          <span class="faq-q-text">Como funciona o atendimento online?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner">As sessões online são por videochamada, em plataforma segura. Funcionam da mesma forma que o presencial. O que muda é só o formato. Você pode estar em qualquer cidade do Brasil.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          <span class="faq-q-text">Qual o valor das sessões?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner">Os valores são informados diretamente pelo WhatsApp. Me chame e conversamos sobre isso sem compromisso.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          <span class="faq-q-text">Você atende homens também?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner">Sim. O atendimento para relacionamentos é aberto para homens e mulheres. Muitos homens chegam com dificuldade de se expressar dentro da relação, de lidar com o ciúme, ou de entender o que está quebrando. É um espaço sem julgamento para isso também.</p>
+        </div>
+      </div>
+
+      <div class="section-cta reveal" style="padding-top: 40px;">
+        <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." target="_blank">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+          Quero conversar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <span class="label label--white reveal">Próximo passo</span>
+    <h2 class="cta-final-title reveal d1">Dá pra começar com<br>uma conversa.</h2>
+    <p class="cta-final-text reveal d2">Às vezes o primeiro passo é só nomear o que está acontecendo. Que tal compartilhar o que você está sentindo com alguém que vai te escutar de verdade e caminhar ao seu lado?</p>
+    <a href="https://wa.me/5511944876278?text=Ol%C3%A1%20Jessica%2C%20vim%20pela%20p%C3%A1gina%20de%20relacionamentos%20e%20gostaria%20de%20conversar." class="cta-final-btn reveal d3" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.51 5.832L.057 23.054a.5.5 0 0 0 .6.648l5.358-1.403A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 0 1-5.031-1.376l-.36-.214-3.724.976.995-3.633-.235-.374A9.843 9.843 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+      Me chamar no WhatsApp
+    </a>
+    <p class="cta-final-info reveal d4">Presencial em Moema, SP · Online para todo o Brasil</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 20 700 90" aria-label="Jessica Miyagawa">
+          <text x="350" y="98" font-family="'Gistesy', cursive" font-size="72" text-anchor="middle" fill="#C7AF94">Jessica Miyagawa</text>
+        </svg>
+        <p class="footer-crp">CRP 06/211924 · Psicóloga TCC</p>
+      </div>
+      <div class="footer-right">
+        <a href="index.html" class="footer-link">Ver site completo</a>
+        <p class="footer-copy">© 2025 Jessica Miyagawa</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Carrossel benefícios — dots (mobile only)
+    if (window.innerWidth <= 900) {
+      const grid = document.querySelector('.beneficios-grid');
+      const dots = document.querySelectorAll('.beneficios-dot');
+      if (grid && dots.length) {
+        grid.addEventListener('scroll', () => {
+          const index = Math.round(grid.scrollLeft / grid.offsetWidth);
+          dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }, { passive: true });
+      }
+    } else {
+      document.querySelector('.beneficios-dots').style.display = 'none';
+      document.querySelector('.dep-dots').style.display = 'none';
+      document.querySelector('.como-dots').style.display = 'none';
+    }
+
+    if (window.innerWidth <= 900) {
+      const depGrid = document.querySelector('.dep-grid');
+      const depDots = document.querySelectorAll('.dep-dot');
+      if (depGrid && depDots.length) {
+        depGrid.addEventListener('scroll', () => {
+          const index = Math.round(depGrid.scrollLeft / depGrid.offsetWidth);
+          depDots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }, { passive: true });
+      }
+
+      const comoSteps = document.querySelector('.como-steps');
+      const comoDots = document.querySelectorAll('.como-dot');
+      if (comoSteps && comoDots.length) {
+        comoSteps.addEventListener('scroll', () => {
+          const index = Math.round(comoSteps.scrollLeft / comoSteps.offsetWidth);
+          comoDots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }, { passive: true });
+      }
+    }
+
+    // Reconhecimento + TCC accordion (mobile only)
+    if (window.innerWidth <= 900) {
+      document.querySelectorAll('.tcc-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.tcc-item').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+    }
+
+    if (window.innerWidth <= 900) {
+      document.querySelectorAll('.rec-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.rec-item').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+  <!-- Google Ads: conversão ao clicar no WhatsApp -->
+  <script>
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        gtag('event', 'conversion', {'send_to': 'AW-17342072257/SAeuCPrSqpwbEMGLrM1A'});
+      });
+    });
+  </script>
+</body>
+</html>

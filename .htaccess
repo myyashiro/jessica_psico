@@ -1,0 +1,6 @@
+Options -Indexes
+RewriteEngine On
+
+# URLs limpas para as landing pages
+RewriteRule ^relacionamentos/?$ /lp-relacionamentos.html [L]
+RewriteRule ^bem-estar-feminino/?$ /lp-bem-estar-feminino.html [L]
