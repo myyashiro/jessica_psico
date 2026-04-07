@@ -834,9 +834,8 @@
         }, { passive: true });
       }
     } else {
-      document.querySelector('.beneficios-dots').style.display = 'none';
-      document.querySelector('.dep-dots').style.display = 'none';
-      document.querySelector('.como-dots').style.display = 'none';
+      const depDotsEl = document.querySelector('.dep-dots');
+      if (depDotsEl) depDotsEl.style.display = 'none';
     }
 
     if (window.innerWidth <= 900) {
