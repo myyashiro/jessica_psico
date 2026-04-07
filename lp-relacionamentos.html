@@ -200,26 +200,26 @@
     .beneficio-text { font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 1.8; }
 
     /* ── SOBRE ── */
-    .sobre { padding: 120px 0; background: var(--almond); }
+    .sobre { padding: 120px 0; background: var(--dark); }
     .sobre-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .sobre-content .label { display: block; margin-bottom: 20px; }
-    .sobre-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 400; line-height: 1.2; color: var(--dark); margin-bottom: 24px; }
-    .sobre-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; margin-bottom: 16px; }
-    .sobre-divider { width: 40px; height: 1px; background: var(--sand); margin: 28px 0; }
+    .sobre-content .label { display: block; margin-bottom: 20px; color: var(--sand); }
+    .sobre-title { font-family: var(--font-display); font-size: clamp(30px, 2.8vw, 46px); font-weight: 400; line-height: 1.2; color: var(--almond); margin-bottom: 24px; }
+    .sobre-text { font-size: 15px; font-weight: 300; color: rgba(227,232,213,0.6); line-height: 1.9; margin-bottom: 16px; }
+    .sobre-divider { width: 40px; height: 1px; background: rgba(172,176,135,0.3); margin: 28px 0; }
     .credentials { display: flex; flex-direction: column; gap: 10px; }
-    .credential { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 300; color: var(--text-light); }
-    .credential::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--earth); flex-shrink: 0; }
+    .credential { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 300; color: rgba(227,232,213,0.5); }
+    .credential::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--sand); flex-shrink: 0; }
     .sobre-photo { position: relative; }
     .sobre-photo img { width: 100%; height: 720px; object-fit: cover; object-position: top center; }
-    .sobre-photo::after { content: ''; position: absolute; bottom: -20px; left: -20px; width: 180px; height: 180px; background: var(--white); z-index: -1; }
+    .sobre-photo::after { content: ''; position: absolute; bottom: -20px; left: -20px; width: 180px; height: 180px; background: var(--dark); z-index: -1; }
     .sobre-destaque {
-      border-left: 3px solid rgba(255,255,255,0.6);
+      border-left: 3px solid rgba(172,176,135,0.5);
       padding: 24px 28px;
-      background: var(--earth);
+      background: rgba(255,255,255,0.06);
       font-family: var(--font-display);
       font-size: 19px;
       font-style: italic;
-      color: white;
+      color: var(--almond);
       line-height: 1.5;
       margin: 4px 0;
     }
@@ -638,7 +638,7 @@
     <div class="sobre-inner">
       <div class="sobre-content">
         <span class="label reveal">Como funciona a terapia comigo</span>
-        <h2 class="sobre-title reveal d1">Se você sente que tem problemas no relacionamento, a terapia <span style="color: var(--earth);">também é para você.</span></h2>
+        <h2 class="sobre-title reveal d1">Se você sente que tem problemas no relacionamento, a terapia <span style="color: var(--sand);">também é para você.</span></h2>
         <p class="sobre-text reveal d2">
           Especialmente quando você nem sabe bem por onde começar.
         </p>
