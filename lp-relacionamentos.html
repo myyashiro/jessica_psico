@@ -869,15 +869,13 @@
       });
     }
 
-    if (window.innerWidth <= 900) {
-      document.querySelectorAll('.rec-item').forEach(item => {
-        item.addEventListener('click', () => {
-          const isOpen = item.classList.contains('open');
-          document.querySelectorAll('.rec-item').forEach(i => i.classList.remove('open'));
-          if (!isOpen) item.classList.add('open');
-        });
+    document.querySelectorAll('.rec-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.rec-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
       });
-    }
+    });
 
     // FAQ accordion
     document.querySelectorAll('.faq-q').forEach(btn => {
