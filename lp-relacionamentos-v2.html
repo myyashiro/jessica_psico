@@ -80,7 +80,7 @@
     .header-cta svg { width: 15px; height: 15px; flex-shrink: 0; }
 
     /* ── HERO ── */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 52% 48%; }
+    .hero { min-height: 86vh; display: grid; grid-template-columns: 42% 58%; }
     .hero-photo { position: relative; overflow: hidden; }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease; filter: grayscale(100%); }
     .hero-photo:hover img { transform: scale(1.03); filter: grayscale(70%); }
@@ -339,22 +339,21 @@
 
     /* ── ORIGEM (nova seção) ── */
     .origem { padding: 120px 0; background: var(--almond); }
-    .origem-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .origem-inner { max-width: 780px; margin: 0 auto; padding: 0 48px; }
     .origem-label { display: block; margin-bottom: 20px; }
     .origem-title {
       font-family: var(--font-display);
       font-size: clamp(34px, 3.2vw, 54px);
       font-weight: 300; font-style: italic;
       color: var(--dark); margin-bottom: 36px; line-height: 1.2;
-      max-width: 680px;
     }
-    .origem-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
+    .origem-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; margin-bottom: 20px; }
     .origem-destaque {
       font-family: var(--font-display);
       font-size: clamp(22px, 2.2vw, 34px);
       font-style: italic; font-weight: 300;
       color: var(--dark); line-height: 1.3;
-      margin: 44px 0; max-width: 680px;
+      margin: 44px 0; text-align: center;
     }
 
     /* ── COMO FUNCIONA (extensões) ── */
@@ -624,7 +623,6 @@
 
       .origem { padding: 72px 0; }
       .origem-inner { padding: 0 24px; }
-      .origem-title, .origem-text, .origem-destaque { max-width: 100%; }
       .para-quem { padding: 72px 0; }
       .para-quem-wrap { padding: 0 24px; }
       .para-quem-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -794,8 +792,8 @@
   <section class="origem">
     <div class="origem-inner">
       <div class="reveal">
-        <span class="label origem-label">Abordagem</span>
-        <h2 class="origem-title">A abordagem TCC</h2>
+        <span class="label origem-label">Como funciona</span>
+        <h2 class="origem-title">Por que entender sozinho não é suficiente para mudar.</h2>
       </div>
       <p class="origem-text reveal d1">O problema de hoje quase sempre tem uma história mais antiga. O que chega na terapia raramente é só o que parece.</p>
       <p class="origem-text reveal d2">A pessoa que não consegue sustentar um limite aprendeu, em algum momento, que ceder era mais seguro do que aguentar o desconforto do outro. A pessoa que se fecha emocionalmente desenvolveu isso como proteção. Antes de ser uma escolha, foi uma resposta que funcionou. O ciúme que aparece antes de qualquer pensamento. A escolha repetida pelo mesmo tipo de pessoa. A dificuldade de confiar mesmo quando não há razão concreta para desconfiar.</p>
@@ -815,7 +813,7 @@
     <div class="como-inner">
       <div class="como-header reveal">
         <span class="label">O processo</span>
-        <h2 class="como-title">Como é o processo na prática.</h2>
+        <h2 class="como-title">Como é na prática.</h2>
       </div>
       <p class="como-subtitle reveal">Você não precisa saber explicar o que está sentindo. Não precisa ter as palavras certas. Você traz o que tem. Eu entendo o contexto e o que você quer mudar.</p>
       <div class="como-steps" style="grid-template-columns: repeat(2, 1fr);">
@@ -899,7 +897,6 @@
     <div class="para-quem-wrap">
       <div class="para-quem-header reveal">
         <span class="label">Para quem é</span>
-        <h2 class="para-quem-title">Faz sentido pra mim?</h2>
       </div>
       <div class="para-quem-inner">
       <div class="para-quem-block reveal d1">
