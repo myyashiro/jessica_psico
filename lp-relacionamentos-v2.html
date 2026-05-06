@@ -82,8 +82,8 @@
     /* ── HERO ── */
     .hero { min-height: 100vh; display: grid; grid-template-columns: 52% 48%; }
     .hero-photo { position: relative; overflow: hidden; }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    .hero-photo:hover img { transform: scale(1.03); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease; filter: grayscale(100%); }
+    .hero-photo:hover img { transform: scale(1.03); filter: grayscale(70%); }
     .hero-content {
       display: flex; flex-direction: column; justify-content: center;
       padding: 120px 64px 80px;
@@ -280,7 +280,7 @@
     /* ── FAQ ── */
     .faq { padding: 120px 0; background: var(--almond); }
     .faq-inner { max-width: 780px; margin: 0 auto; padding: 0 48px; }
-    .faq-header { text-align: center; margin-bottom: 16px; }
+    .faq-header { margin-bottom: 16px; }
     .faq-header .label { display: block; margin-bottom: 20px; }
     .faq-title { font-family: var(--font-display); font-size: clamp(36px, 3.4vw, 56px); font-weight: 300; font-style: italic; color: var(--dark); }
     .faq-item { border-bottom: 1px solid rgba(140,145,108,0.2); }
@@ -339,21 +339,22 @@
 
     /* ── ORIGEM (nova seção) ── */
     .origem { padding: 120px 0; background: var(--almond); }
-    .origem-inner { max-width: 780px; margin: 0 auto; padding: 0 48px; }
+    .origem-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
     .origem-label { display: block; margin-bottom: 20px; }
     .origem-title {
       font-family: var(--font-display);
       font-size: clamp(34px, 3.2vw, 54px);
       font-weight: 300; font-style: italic;
       color: var(--dark); margin-bottom: 36px; line-height: 1.2;
+      max-width: 680px;
     }
-    .origem-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; margin-bottom: 20px; }
+    .origem-text { font-size: 15px; font-weight: 300; color: var(--text-light); line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
     .origem-destaque {
       font-family: var(--font-display);
       font-size: clamp(22px, 2.2vw, 34px);
       font-style: italic; font-weight: 300;
       color: var(--dark); line-height: 1.3;
-      margin: 44px 0; text-align: center;
+      margin: 44px 0; max-width: 680px;
     }
 
     /* ── COMO FUNCIONA (extensões) ── */
@@ -431,8 +432,17 @@
     /* ── TYPOGRAPHY SCALE-UP ── */
 
     /* ── PARA QUEM (nova seção) ── */
-    .para-quem { padding: 140px 0 120px; background: var(--almond); }
-    .para-quem-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .para-quem { padding: 120px 0; background: var(--almond); }
+    .para-quem-wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+    .para-quem-header { margin-bottom: 52px; }
+    .para-quem-header .label { display: block; margin-bottom: 20px; }
+    .para-quem-title {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 3.2vw, 54px);
+      font-weight: 300; font-style: italic;
+      color: var(--dark); line-height: 1.2; max-width: 560px;
+    }
+    .para-quem-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
     .pq-title {
       font-family: var(--font-display);
       font-size: clamp(32px, 3vw, 48px);
@@ -614,12 +624,15 @@
 
       .origem { padding: 72px 0; }
       .origem-inner { padding: 0 24px; }
+      .origem-title, .origem-text, .origem-destaque { max-width: 100%; }
       .para-quem { padding: 72px 0; }
-      .para-quem-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 24px; }
+      .para-quem-wrap { padding: 0 24px; }
+      .para-quem-inner { grid-template-columns: 1fr; gap: 48px; }
     }
 
     @media (max-width: 768px) {
       .hero-photo { height: 52vw; max-height: 240px; }
+      .hero-photo img { filter: none; }
       .hero-video { order: 10; margin-top: 28px; margin-bottom: 0; }
     }
   </style>
@@ -781,10 +794,10 @@
   <section class="origem">
     <div class="origem-inner">
       <div class="reveal">
-        <span class="label origem-label">TCC</span>
-        <h2 class="origem-title">O problema de hoje quase sempre tem uma história mais antiga.</h2>
+        <span class="label origem-label">Abordagem</span>
+        <h2 class="origem-title">A abordagem TCC</h2>
       </div>
-      <p class="origem-text reveal d1">O que chega na terapia raramente é só o que parece.</p>
+      <p class="origem-text reveal d1">O problema de hoje quase sempre tem uma história mais antiga. O que chega na terapia raramente é só o que parece.</p>
       <p class="origem-text reveal d2">A pessoa que não consegue sustentar um limite aprendeu, em algum momento, que ceder era mais seguro do que aguentar o desconforto do outro. A pessoa que se fecha emocionalmente desenvolveu isso como proteção. Antes de ser uma escolha, foi uma resposta que funcionou. O ciúme que aparece antes de qualquer pensamento. A escolha repetida pelo mesmo tipo de pessoa. A dificuldade de confiar mesmo quando não há razão concreta para desconfiar.</p>
       <p class="origem-destaque reveal d3">Esses padrões não surgem do nada. Eles têm origem, têm lógica, e têm nome.</p>
       <p class="origem-text reveal d2">Na TCC, o trabalho começa por entender essa origem. Não para ficar revisitando o passado, mas para que você pare de ser governado por ele sem perceber. Entender de onde vem o padrão é o primeiro passo. O segundo é construir, na prática, uma forma diferente de responder.</p>
@@ -883,7 +896,12 @@
 
   <!-- PARA QUEM É (nova seção) -->
   <section class="para-quem">
-    <div class="para-quem-inner">
+    <div class="para-quem-wrap">
+      <div class="para-quem-header reveal">
+        <span class="label">Para quem é</span>
+        <h2 class="para-quem-title">Faz sentido pra mim?</h2>
+      </div>
+      <div class="para-quem-inner">
       <div class="para-quem-block reveal d1">
         <h2 class="pq-title">É pra você se…</h2>
         <div class="pq-items">
@@ -901,6 +919,7 @@
           <p class="pq-item">Você busca validação para continuar exatamente como está</p>
           <p class="pq-item">Você não está disposto a olhar para o seu papel nos padrões</p>
         </div>
+      </div>
       </div>
     </div>
   </section>
