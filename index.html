@@ -660,5 +660,16 @@
       if (depDotsEl) depDotsEl.style.display = 'none';
     }
   </script>
+  <!-- GA4: evento ao clicar no WhatsApp -->
+  <script>
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        gtag('event', 'whatsapp_click', {
+          page_location: window.location.href,
+          page_title: document.title
+        });
+      });
+    });
+  </script>
 </body>
 </html>

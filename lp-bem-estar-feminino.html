@@ -859,11 +859,15 @@
       });
     });
   </script>
-  <!-- Google Ads: conversão ao clicar no WhatsApp -->
+  <!-- Google Ads + GA4: conversão ao clicar no WhatsApp -->
   <script>
     document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
       el.addEventListener('click', function() {
         gtag('event', 'conversion', {'send_to': 'AW-17342072257/SAeuCPrSqpwbEMGLrM1A'});
+        gtag('event', 'whatsapp_click', {
+          page_location: window.location.href,
+          page_title: document.title
+        });
       });
     });
   </script>
