@@ -1241,6 +1241,18 @@
       });
     }
 
+    // Equal height rec-items (desktop only)
+    function equalizeRecItems() {
+      const items = document.querySelectorAll('.rec-item');
+      items.forEach(el => el.style.height = '');
+      if (window.innerWidth <= 900) return;
+      let max = 0;
+      items.forEach(el => { max = Math.max(max, el.offsetHeight); });
+      items.forEach(el => { el.style.height = max + 'px'; });
+    }
+    equalizeRecItems();
+    window.addEventListener('resize', equalizeRecItems);
+
     // FAQ accordion
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
