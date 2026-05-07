@@ -366,6 +366,9 @@
     .whats-float:hover { transform: scale(1.1); }
     .whats-float svg { width: 26px; height: 26px; }
 
+    /* ── ORIGEM TABS (mobile only) ── */
+    .origem-tab-nav { display: none; }
+
     /* ── ORIGEM (nova seção) ── */
     .origem { padding: 120px 0; background: var(--almond); }
     .origem-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
@@ -662,7 +665,47 @@
 
       .origem { padding: 72px 0; }
       .origem-inner { padding: 0 24px; }
-      .origem-concepts { grid-template-columns: 1fr; }
+      .origem-tab-nav {
+        display: flex;
+        background: white;
+        margin: 32px 0 0;
+      }
+      .origem-tab-btn {
+        flex: 1;
+        padding: 16px 8px 14px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid rgba(140,145,108,0.2);
+        cursor: pointer;
+        text-align: center;
+        transition: border-color 0.25s;
+      }
+      .origem-tab-btn.active { border-bottom-color: var(--earth); }
+      .origem-tab-num {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 9px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--earth);
+        margin-bottom: 5px;
+      }
+      .origem-tab-label {
+        font-family: var(--font-display);
+        font-size: 19px;
+        font-weight: 400;
+        color: var(--text-light);
+        transition: color 0.25s;
+      }
+      .origem-tab-btn.active .origem-tab-label { color: var(--dark); }
+      .origem-concepts {
+        grid-template-columns: 1fr;
+        background: transparent;
+        gap: 0;
+        margin: 0 0 44px;
+      }
+      .origem-concept { display: none; }
+      .origem-concept.active { display: block; }
       .para-quem { padding: 72px 0; }
       .para-quem-wrap { padding: 0 24px; }
       .pq-checklist { grid-template-columns: 1fr; }
@@ -826,6 +869,20 @@
       </div>
       <p class="origem-text reveal d1">O problema de hoje quase sempre tem uma história mais antiga. Cada padrão que se repete teve, em algum momento, uma função. Foi uma resposta que funcionou em algum contexto. O ciúme que aparece antes de qualquer pensamento. A dificuldade de confiar mesmo sem razão concreta. A escolha repetida pelo mesmo tipo de pessoa. Antes de ser um problema, foi uma solução.</p>
       <p class="origem-destaque reveal d2">Esses padrões não surgem do nada. Eles têm origem, têm lógica, e têm nome.</p>
+      <div class="origem-tab-nav">
+        <button class="origem-tab-btn">
+          <span class="origem-tab-num">01</span>
+          <span class="origem-tab-label">Origem</span>
+        </button>
+        <button class="origem-tab-btn">
+          <span class="origem-tab-num">02</span>
+          <span class="origem-tab-label">Lógica</span>
+        </button>
+        <button class="origem-tab-btn">
+          <span class="origem-tab-num">03</span>
+          <span class="origem-tab-label">Nome</span>
+        </button>
+      </div>
       <div class="origem-concepts reveal">
         <div class="origem-concept">
           <div class="origem-concept-num">01</div>
@@ -1174,6 +1231,22 @@
         if (!isOpen) item.classList.add('open');
       });
     });
+
+    // Origem tabs (mobile)
+    if (window.innerWidth <= 900) {
+      const tabBtns = document.querySelectorAll('.origem-tab-btn');
+      const concepts = document.querySelectorAll('.origem-concept');
+      tabBtns[0].classList.add('active');
+      concepts[0].classList.add('active');
+      tabBtns.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          concepts.forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          concepts[i].classList.add('active');
+        });
+      });
+    }
 
     // FAQ accordion
     document.querySelectorAll('.faq-q').forEach(btn => {
