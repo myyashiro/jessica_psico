@@ -3,6 +3,7 @@
     { "source": "/relacionamentos", "destination": "/lp-relacionamentos.html" },
     { "source": "/bem-estar-feminino", "destination": "/lp-bem-estar-feminino.html" },
     { "source": "/trabalho", "destination": "/lp-trabalho.html" },
-    { "source": "/portugal", "destination": "/lp-portugal.html" }
+    { "source": "/portugal", "destination": "/lp-portugal.html" },
+    { "source": "/termino", "destination": "/lp-termino.html" }
   ]
 }
